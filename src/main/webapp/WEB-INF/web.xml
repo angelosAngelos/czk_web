@@ -10,7 +10,7 @@
   </welcome-file-list>
   <context-param>
     <param-name>contextConfigLocation</param-name>
-    <param-value>classpath:config/mybais-config.xml;classpath:config/spring-dao.xml</param-value>
+    <param-value>classpath:config/mybatis-config.xml;classpath:config/spring-dao.xml</param-value>
   </context-param>
   <listener>
     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
