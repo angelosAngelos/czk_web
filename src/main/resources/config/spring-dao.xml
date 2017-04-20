@@ -40,7 +40,7 @@
 
 	<!-- 自动扫描sqlmapframework映射器 -->
 	<bean id="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com.my.dao" />
+		<property name="basePackage" value="com.czk.*.dao" />
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
 	</bean>
 	
@@ -61,7 +61,7 @@
 		scope="prototype">
 		<property name="patterns">
 			<list>
-				<value>com.my.services.*</value>
+				<value>com.czk.*.service</value>
 			</list>
 		</property>
 	</bean>
