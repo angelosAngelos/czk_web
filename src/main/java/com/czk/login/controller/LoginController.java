@@ -18,7 +18,7 @@ import com.czk.login.service.LoginService;
 import com.czk.util.JSONUtil;
 
 @Controller
-@RequestMapping(value = "/userController.do")
+@RequestMapping(value = "/loginController.do")
 public class LoginController {
 	
 	@Resource(name="loginService")

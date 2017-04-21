@@ -19,7 +19,7 @@
 		}
 		$.ajax({ 
             type:"POST", 
-            url:"${pageContext.request.contextPath}/userController.do?method=login",                    
+            url:"${pageContext.request.contextPath}/loginController.do?method=login",                    
             data:json, 
             dataType: "json",
             success:function(data){ 
