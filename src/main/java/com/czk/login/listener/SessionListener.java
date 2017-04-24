@@ -20,28 +20,28 @@ public class SessionListener implements HttpSessionListener {
 
 	@Override
 	public void sessionCreated(HttpSessionEvent session) {
-		System.out.println("sessionCreated£º" + session.getSession().getId());
+		System.out.println("sessionCreatedï¿½ï¿½" + session.getSession().getId());
 	}
 
 	@Override
 	public void sessionDestroyed(HttpSessionEvent session) {
 		userSessionMap.remove(sessionUserMap.remove(session.getSession().getId()));
-		System.out.println("sessionDestroyed£º" + session.getSession().getId());
+		System.out.println("sessionDestroyedï¿½ï¿½" + session.getSession().getId());
 	}
 
 	public static boolean isAlreadyEnter(HttpSession newSession, String userId) {
 		boolean flag = false;
 		if (userSessionMap.get(userId) != null) {
-			// Ö®Ç°ÒÑÓĞÕË»§µÇÂ½
+			// Ö®Ç°ï¿½ï¿½ï¿½ï¿½ï¿½Ë»ï¿½ï¿½ï¿½Â½
 			flag = true;
 			HttpSession httpSession = userSessionMap.remove(userId);
 			sessionUserMap.remove(httpSession.getId());
 
 			httpSession.removeAttribute("userId");
-			httpSession.setAttribute("msg", "ÕË»§ÒÑÔÚÆäËûµØ·½µÇÂ½£¡");
+			httpSession.setAttribute("msg", "è´¦æˆ·å·²åœ¨å…¶ä»–åœ°æ–¹ç™»é™†ï¼");
 			Map<String, Object> messageMap = new HashMap<>();
 			messageMap.put("type", "TC");
-			messageMap.put("msg", "ÕË»§ÒÑÔÚÆäËûµØ·½µÇÂ½");
+			messageMap.put("msg", "è´¦æˆ·å·²åœ¨å…¶ä»–åœ°æ–¹ç™»é™†");
 			try {
 				hsessionSessionMap.get(httpSession.getId()).getBasicRemote()
 						.sendText(JSONObject.toJSONString(messageMap).toString());

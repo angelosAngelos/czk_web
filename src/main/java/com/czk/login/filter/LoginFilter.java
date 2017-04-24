@@ -38,12 +38,12 @@ public class LoginFilter implements Filter {
 			HttpServletRequest hrequest = (HttpServletRequest)request;
 			HttpServletResponseWrapper wrapper = new HttpServletResponseWrapper((HttpServletResponse) response);
 	
-			String logonStrings = config.getInitParameter("logonStrings"); // µÇÂ¼µÇÂ½Ò³Ãæ
-			String includeStrings = config.getInitParameter("includeStrings"); // ¹ıÂË×ÊÔ´ºó×º²ÎÊı
-			String redirectPath = hrequest.getContextPath() + config.getInitParameter("redirectPath");// Ã»ÓĞµÇÂ½×ªÏòÒ³Ãæ
-			String disabletestfilter = config.getInitParameter("disabletestfilter");// ¹ıÂËÆ÷ÊÇ·ñÓĞĞ§
+			String logonStrings = config.getInitParameter("logonStrings"); // ç™»å½•ç™»é™†é¡µé¢
+			String includeStrings = config.getInitParameter("includeStrings"); // è¿‡æ»¤èµ„æºåç¼€å‚æ•°
+			String redirectPath = hrequest.getContextPath() + config.getInitParameter("redirectPath");// æ²¡æœ‰ç™»é™†è½¬å‘é¡µé¢
+			String disabletestfilter = config.getInitParameter("disabletestfilter");// è¿‡æ»¤å™¨æ˜¯å¦æœ‰æ•ˆ
 	
-			if (disabletestfilter.toUpperCase().equals("Y")) { // ¹ıÂËÎŞĞ§
+			if (disabletestfilter.toUpperCase().equals("Y")) { // è¿‡æ»¤æ— æ•ˆ
 				chain.doFilter(request, response);
 				return;
 			}
@@ -52,17 +52,17 @@ public class LoginFilter implements Filter {
 			
 			String url = hrequest.getRequestURI()+ (hrequest.getQueryString()==null?"":("?" + hrequest.getQueryString()));
 	
-			if (!this.isContains(url,includeList)) {// Ö»¶ÔÖ¸¶¨¹ıÂË²ÎÊıºó×º½øĞĞ¹ıÂË
+			if (!this.isContains(url,includeList)) {// åªå¯¹æŒ‡å®šè¿‡æ»¤å‚æ•°åç¼€è¿›è¡Œè¿‡æ»¤
 				chain.doFilter(request, response);
 				return;
 			}
 	
-			if (this.isContains(url, logonList)) {// ¶ÔµÇÂ¼Ò³Ãæ²»½øĞĞ¹ıÂË
+			if (this.isContains(url, logonList)) {// å¯¹ç™»å½•é¡µé¢ä¸è¿›è¡Œè¿‡æ»¤
 				chain.doFilter(request, response);
 				return;
 			}
 			
-			String user = ( String ) hrequest.getSession().getAttribute("userId");//ÅĞ¶ÏÓÃ»§ÊÇ·ñµÇÂ¼
+			String user = ( String ) hrequest.getSession().getAttribute("userId");//åˆ¤æ–­ç”¨æˆ·æ˜¯å¦ç™»å½•
 			if (user == null) {
 				wrapper.sendRedirect(redirectPath);
 				return;

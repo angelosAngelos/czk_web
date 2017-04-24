@@ -18,19 +18,20 @@ public class MyWebSocKet {
 	@OnMessage
 	public void onMessage(String message, Session session) throws IOException, InterruptedException {
 		System.out.println(message);
-		System.out.println("-----数据接受成功-----");
+		System.out.println("-----鏁版嵁鎺ュ彈鎴愬姛-----");
 	}
 
 	@OnOpen
 	public void onOpen(Session session, EndpointConfig config) {
-		System.out.println("-----链接创建成功------");
+		System.out.println("-----閾炬帴鍒涘缓鎴愬姛------");
 		HttpSession httpSession = (HttpSession) config.getUserProperties().get(HttpSession.class.getName());
 		SessionListener.getHsessionSessionMap().put(httpSession.getId(), session);
 	}
 
 	@OnClose
 	public void onClose() {
-		System.out.println("-----链接关闭------");
+		System.out.println("-----閾炬帴鍏抽棴------");
 	}
+
 
 }
