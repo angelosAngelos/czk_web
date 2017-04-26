@@ -35,8 +35,8 @@ public class LoginService {
 			Map<String,Object> map =new HashMap<>(); 
 			map.putAll(menu);
 			map.put("children", new ArrayList<Map<String,Object>>());
-			map.put("parentId", menu.get("parent_id"));
-			menuMap.put(menu.get("id").toString(), map);
+			map.put("parentId", menu.get("parent_menu_id"));
+			menuMap.put(menu.get("menu_id").toString(), map);
 		});
 		menuMap.forEach((menuId,map)->{
 			String parentId = (String) ((Map<String, Object>) map).get("parentId");

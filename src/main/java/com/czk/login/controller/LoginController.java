@@ -26,10 +26,10 @@ public class LoginController {
 	
 	/**
 	 * @author lei.zhou
-	 * @note 用户登陆 
+	 * @note 鐧婚檰
 	 */
 	@RequestMapping(params="method=login",method = RequestMethod.POST)
-	public ModelAndView login(HttpServletRequest request,HttpServletResponse response ){	
+	public ModelAndView login(HttpServletRequest request,HttpServletResponse response ){
 		String name = request.getParameter("name");
 		String password = request.getParameter("password");
 		Map<String,Object> param = new HashMap<>();
@@ -38,23 +38,22 @@ public class LoginController {
 		Map<String,Object> result = new HashMap<>();
 		Map<String,Object> userMap = loginService.login(param);
 		if(userMap!=null){
-			SessionListener.isAlreadyEnter(request.getSession(), userMap.get("id")+"");
-			request.getSession().setAttribute("userId", userMap.get("id"));
+			SessionListener.isAlreadyEnter(request.getSession(), userMap.get("user_id")+"");
+			request.getSession().setAttribute("userId", userMap.get("user_id"));
 			result.put("RESULT", "SUCCESS");
 			result.put("RESULTMAP",userMap);
-			result.put("MESSAGE","登陆成功");
+			result.put("MESSAGE","鐧婚檰鎴愬姛");
 		}else{
 			result.put("RESULT", "FAIL");
-			result.put("MESSAGE","用户名或密码错误");
+			result.put("MESSAGE","鐢ㄦ埛鍚嶆垨瀵嗙爜閿欒");
 		}
-		
 		JSONUtil.sendHtmlObject(response, result);
 		return null;
 	}
 	
 	/**
 	 * @author lei.zhou
-	 * @note 获取用户菜单 
+	 * @note 鑾峰彇鑿滃崟
 	 */
 	@SuppressWarnings({ "unused", "unchecked" })
 	@RequestMapping(params="method=getMenu",method=RequestMethod.POST)
@@ -64,13 +63,13 @@ public class LoginController {
 		paramMap.put("userId", userId);
 		List<Object> arrayMenu = loginService.getMenu(paramMap);
 		Map<String,Object> result = new HashMap<>();
-		if(arrayMenu!=null && arrayMenu.size()>0){
+		if(arrayMenu!=null){
 			result.put("RESULT", "SUCCESS");
 			result.put("RESULTLIST",arrayMenu);
-			result.put("MESSAGE","获取成功");
+			result.put("MESSAGE","鑿滃崟鑾峰彇鎴愬姛");
 		}else{
 			result.put("RESULT", "FAIL");
-			result.put("MESSAGE","获取失败");
+			result.put("MESSAGE","鑿滃崟鑾峰彇澶辫触");
 		}
 		JSONUtil.sendHtmlObject(response, result);
 		return null;

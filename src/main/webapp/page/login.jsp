@@ -11,8 +11,7 @@
 <!-- 引入EasyUI的图标样式文件-->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/jslib/jquery-easyui-1.5.1/themes/icon.css" type="text/css"/>
 <script type="text/javascript">
-	function login(){
-		
+	function login(){		
 		var json={
 				name:$("#name").val(),
 				password:$("#password").val(),
@@ -25,7 +24,7 @@
             success:function(data){ 
                  if(data.RESULT == "SUCCESS"){
                 	//登陆验证成功
-                	 window.top.location.href = '${pageContext.request.contextPath}/page/index.jsp'
+                	window.top.location.href = '${pageContext.request.contextPath}/page/index.jsp'
                  }else{
                 	$.messager.alert('警告',data.MESSAGE,'warning');
                  }

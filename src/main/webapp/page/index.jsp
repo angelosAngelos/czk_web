@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/jslib/jquery-easyui-1.5.1/themes/icon.css" type="text/css"/>
 <script type="text/javascript">
 	$(function(){
-		var webSocket = new WebSocket("ws://localhost:8088/test_web_eayui/websocket");
+		var webSocket = new WebSocket("ws://localhost:8088/czk_web/websocket");
 		
 		webSocket.onerror = function(event) {
 	      onError(event)

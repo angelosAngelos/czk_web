@@ -20,19 +20,19 @@ public class SessionListener implements HttpSessionListener {
 
 	@Override
 	public void sessionCreated(HttpSessionEvent session) {
-		System.out.println("sessionCreated��" + session.getSession().getId());
+		System.out.println("sessionCreated:" + session.getSession().getId());
 	}
 
 	@Override
 	public void sessionDestroyed(HttpSessionEvent session) {
 		userSessionMap.remove(sessionUserMap.remove(session.getSession().getId()));
-		System.out.println("sessionDestroyed��" + session.getSession().getId());
+		System.out.println("sessionDestroyed:" + session.getSession().getId());
 	}
 
 	public static boolean isAlreadyEnter(HttpSession newSession, String userId) {
 		boolean flag = false;
 		if (userSessionMap.get(userId) != null) {
-			// ֮ǰ�����˻���½
+			// 之前已有账户登陆
 			flag = true;
 			HttpSession httpSession = userSessionMap.remove(userId);
 			sessionUserMap.remove(httpSession.getId());

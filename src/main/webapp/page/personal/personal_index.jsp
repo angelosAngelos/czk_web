@@ -18,13 +18,13 @@
 </head>
 <body id="mainlayout" class="easyui-layout">
     <table class="easyui-datagrid" style="width:400px;height:250px"
-        data-options="url:'datagrid_data.json',fitColumns:true,singleSelect:true">
+        data-options="url:'${pageContext.request.contextPath}/userController.do?method=getMenu',fitColumns:true,singleSelect:true">
         <thead>
     		<tr>
-    			<th data-options="field:'type',width:100">类型</th>
-    			<th data-options="field:'name',width:100">角色</th>
-    			<th data-options="field:'price',width:100">金额</th>
-    			<th data-options="field:'price',width:100">来源</th>
+    			<th data-options="field:'TYPE',width:100">类型</th>
+    			<th data-options="field:'NAME',width:100">角色</th>
+    			<th data-options="field:'AMOUNT',width:100">金额</th>
+    			<th data-options="field:'SOURCE',width:100">来源</th>
     		</tr>
         </thead>
     </table>
