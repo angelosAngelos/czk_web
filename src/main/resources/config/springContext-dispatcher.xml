@@ -14,8 +14,10 @@
 		http://www.springframework.org/schema/tx/spring-tx.xsd
 		http://www.springframework.org/schema/aop   
 		http://www.springframework.org/schema/aop/spring-aop.xsd">
-	  
+	
+	<!-- 注册DefaultAnnotationHandlerMapping与AnnotationMethodHandlerAdapter 两个bean -->  
     <mvc:annotation-driven />
+    <!-- 静态资源 -->
     <mvc:default-servlet-handler/> 
      
     <!-- 自动扫描包下的所有类，使其认为spring mvc的控制器 -->

@@ -53,9 +53,9 @@
 </head>
 <body id="mainlayout" class="easyui-layout">
 	<!-- 	主页面结构 -->
-	<div data-options="region:'north',split:true" style="height:100px;"></div>
-	<div data-options="region:'west',title:'系统菜单',split:true,href:'${pageContext.request.contextPath}/page/layout/west.jsp'" style="width:200px;"></div>
-	<div data-options="region:'center',split:true,href:'${pageContext.request.contextPath}/page/layout/center.jsp'"></div>
+	<div data-options="region:'north'" style="height:100px;"></div>
+	<div data-options="region:'west',title:'系统菜单',href:'${pageContext.request.contextPath}/page/layout/west.jsp'" style="width:200px;"></div>
+	<div data-options="region:'center',href:'${pageContext.request.contextPath}/page/layout/center.jsp'"></div>
 	<div data-options="region:'south'"style="text-align:right;height:30px;line-height:30px;"></div>
 </body>
 </html>

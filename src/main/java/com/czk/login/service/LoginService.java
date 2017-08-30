@@ -10,6 +10,7 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import com.czk.login.dao.LoginDao;
+import com.czk.util.MD5Util;
 
 @Service("loginService")
 public class LoginService {
@@ -19,6 +20,7 @@ public class LoginService {
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public Map<String,Object> login(Map param){
+		param.put("password", MD5Util.string2MD5(param.get("password").toString()));
 		List<Map> user = loginDao.login(param);
 		if(user.size() == 1){
 			return user.get(0);

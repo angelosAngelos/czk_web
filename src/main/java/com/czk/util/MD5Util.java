@@ -12,7 +12,6 @@ public class MD5Util {
         try{  
             md5 = MessageDigest.getInstance("MD5");  
         }catch (Exception e){  
-            System.out.println(e.toString());  
             e.printStackTrace();  
             return "";  
         }  
@@ -50,11 +49,11 @@ public class MD5Util {
   
     // 测试主函数  
     public static void main(String args[]) {  
-        String s = new String("admin");  
-        System.out.println("ԭʼ��" + s);  
-        System.out.println("MD5��" + string2MD5(s));  
-        System.out.println("���ܵģ�" + convertMD5(s));  
-        System.out.println("���ܵģ�" + convertMD5(convertMD5(s)));  
+        String s = new String("123456");  
+        System.out.println("加密前:" + s);  
+        System.out.println("MD5加密后:" + string2MD5(s));  
+        System.out.println("加密:" + convertMD5(s));  
+        System.out.println("解密:" + convertMD5(convertMD5(s)));  
     }  
 	
 }

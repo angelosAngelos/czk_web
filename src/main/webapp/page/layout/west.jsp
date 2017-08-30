@@ -7,6 +7,7 @@
             data: {},
             dataType: "json",
             success:function(data){
+            	alert(JSON.stringify(data));
             	for(var i=0;i<data.RESULTLIST.length;i++){
             		$('#main_menu').accordion('add', {
             	    	title: data.RESULTLIST[i].text,
@@ -18,20 +19,7 @@
             			lines : true,
             			animate : true,
             			onclick:function(node){
-            				var center_tab = $('#layout_center_tabs');
-            				if (center_tab.tabs('exists', node.text)) {
-            					var tab=center_tab.tabs('getTab', node.text);
-            					var tabSelected = center_tab.tabs('getSelected');
-            					if($(tabSelected).panel('options').title==node.text){
-            						//当前激活tab属于当前点击节点时,不处理
-            						return;
-            					}else{
-            						//激活属于当前点击节点的tab
-            						center_tab.tabs('select', node.text);
-            						return;
-            					}
-            				}
-            				alert(node.text);  // alert node text property when clicked
+            				addTab(data.RESULTLIST[i].text,data.RESULTLIST[i].url);
             			}
             		})
             	}
@@ -40,7 +28,20 @@
             	alert("菜单获取失败");
             }
 		})
-	});	
+	});
+
+    function addTab(title, url){
+    	if ($('#layout_center_tabs').tabs('exists', title)){
+    		$('#layout_center_tabst').tabs('select', title);
+    	} else {
+    		var content = '<iframe scrolling="auto" frameborder="0"  src="'+url+'" style="width:100%;height:100%;"></iframe>';
+    		$('#layout_center_tabs').tabs('add',{
+    			title:title,
+    			content:content,
+    			closable:true
+    		});
+    	}
+    }
 </script>
 <div id="main_menu" class="easyui-accordion" style="font-weight: bold;line-height: 28px;" data-options="fit:true,border:false">
 </div>

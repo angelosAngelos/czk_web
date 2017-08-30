@@ -20,7 +20,7 @@ public class JSONUtil {
 		}
 		
 		response.setContentType("text/html;charset=utf-8");
-		// Çå¿Õ»º´æ
+	
 		response.setDateHeader("expires", 0);
 		response.setHeader("Cache-Control", "no-cache");
 		response.setHeader("pragma", "no-cache");

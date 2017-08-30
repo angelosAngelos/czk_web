@@ -2,6 +2,6 @@
 <script type="text/javascript">
 
 </script>
-<div id="layout_center_tabs" style="overflow: hidden;">
-	<div title="首页"  data-options="href:'${pageContext.request.contextPath}/manager/layout/portal.jsp'"></div>
-</div>
+<div id="layout_center_tabs" class="easyui-tabs" style="width:100%;height:100%;">
+   
+ </div>
